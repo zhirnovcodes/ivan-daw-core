@@ -33,5 +33,13 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/api.ts"],
+      "formatter": {
+        "enabled": false
+      }
+    }
+  ]
 }
