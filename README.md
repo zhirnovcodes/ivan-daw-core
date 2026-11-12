@@ -15,4 +15,13 @@ pnpm add github:zhirnovcodes/ivan-daw-core#v0.1.0
 - Design: [docs/tech-design.md](docs/tech-design.md), section "ivandaw-core API"
 - Plugin API: [docs/plugin-api.md](docs/plugin-api.md)
 
-The tooling arrives with task P1.
+## Development
+
+```
+pnpm i
+pnpm check    # typecheck, Biome, Vitest, and a check that dist/ is up to date
+pnpm build    # rebuild dist/
+```
+
+`dist/` is committed so the git-tag install needs no publish or `prepare` step.
+After changing `src/`, run `pnpm build` and commit `dist/` with it; `pnpm check` fails if they differ.

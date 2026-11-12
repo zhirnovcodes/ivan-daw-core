@@ -1,0 +1,37 @@
+{
+  "name": "ivandaw-core",
+  "version": "0.0.1",
+  "description": "Plugin API v2 types, timing math, MIDI helpers and envelopes shared by IvanDAW and its plugins",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.34.9",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run",
+    "check:dist": "node scripts/check-dist.mjs",
+    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm check:dist"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.7",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
