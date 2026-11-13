@@ -20,7 +20,7 @@ The DAW lives in zhirnovcodes/ivan-daw (package `ivandaw`). It installs this rep
 ## Commands (P1 creates them)
 
 - `pnpm i`
-- `pnpm check` runs typecheck, Biome and Vitest. Run it before every PR.
+- `pnpm check` runs typecheck, Biome and Vitest. Run it before every push.
 
 Use Node >= 22: cloud sessions run Node 22, the PC runs Node 24. Use pnpm 10 through corepack.
 
@@ -31,18 +31,12 @@ Use Node >= 22: cloud sessions run Node 22, the PC runs Node 24. Use pnpm 10 thr
 - Every exported function gets Vitest tests.
 - A git-tag install must work with no publish step. P1 picks a `prepare` build script or committed `dist/`.
 - Every change that ivan-daw needs gets a semver tag. While on 0.x, a breaking type change bumps the minor version.
-- Cloud sessions cannot push tags. Ivan creates the tag after merging.
+- Cloud sessions cannot push tags. A session on Ivan's PC pushes the tag itself; otherwise Ivan creates it.
 - Changing `src/api.ts` or `src/transport.ts` changes a contract. Do it only when the task says so.
 
-## Branches and pull requests
+## Commits (v1.1 onwards)
 
-- One branch per task: `task/<part>-<slug>`, for example `task/P1-core-tooling`. Never commit to `main`.
-- Open the PR only after `pnpm check` passes.
-- Cloud sessions block `gh pr` and `gh issue`. Use REST through `gh api`:
-  ```
-  gh api repos/zhirnovcodes/ivan-daw-core/pulls -f title='P1 core tooling' \
-    -f head=task/P1-core-tooling -f base=main -F body=@pr-body.md
-  gh api repos/zhirnovcodes/ivan-daw-core/issues/<number>/labels -f 'labels[]=checks-only'
-  ```
-  If these fail, say so in the session; Ivan will tap Create PR.
-- Labels: `checks-only` (the usual one for this repo), `ready-to-test`, `blocked`.
+- The current plan lives in ivan-daw: `docs/v1.1-plan.md`. Core's v1.1 task is T1.
+- Commit straight to `main`, message starting with the task id, for example `T1: NOTE.C1`.
+- Push only after `pnpm check` passes and `dist/` is rebuilt.
+- No pull requests or labels in this repo.
