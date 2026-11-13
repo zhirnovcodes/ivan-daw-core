@@ -1,6 +1,6 @@
 {
   "name": "ivandaw-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Plugin API v2 types, timing math, MIDI helpers and envelopes shared by IvanDAW and its plugins",
   "license": "UNLICENSED",
   "private": true,

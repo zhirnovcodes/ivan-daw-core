@@ -20,7 +20,8 @@ export declare function parse(bytes: MidiBytes): ParsedMidi;
 export declare function isAllOff(bytes: MidiBytes): boolean;
 /** Equal-tempered frequency of a MIDI note, A4 (69) = 440 Hz. */
 export declare const noteToHz: (n: number) => number;
-/** Ableton naming: C3 = MIDI 60. */
+/** Ableton naming: C1 = MIDI 36, C3 = MIDI 60. */
 export declare const NOTE: {
+    readonly C1: 36;
     readonly C3: 60;
 };

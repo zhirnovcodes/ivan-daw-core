@@ -35,5 +35,5 @@ export function isAllOff(bytes) {
 }
 /** Equal-tempered frequency of a MIDI note, A4 (69) = 440 Hz. */
 export const noteToHz = (n) => 440 * 2 ** ((n - 69) / 12);
-/** Ableton naming: C3 = MIDI 60. */
-export const NOTE = { C3: 60 };
+/** Ableton naming: C1 = MIDI 36, C3 = MIDI 60. */
+export const NOTE = { C1: 36, C3: 60 };

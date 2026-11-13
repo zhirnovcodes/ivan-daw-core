@@ -58,7 +58,8 @@ describe('noteToHz', () => {
     expect(noteToHz(81)).toBeCloseTo(880, 9);
   });
 
-  it('names C3 as MIDI 60 (Ableton)', () => {
+  it('names C1 as MIDI 36 and C3 as MIDI 60 (Ableton)', () => {
     expect(NOTE.C3).toBe(60);
+    expect(NOTE.C1).toBe(36);
   });
 });
